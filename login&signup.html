@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="styles1.css">
+    <style>
+        .tab {
+            display: none;
+        }
+
+        .tab.active {
+            display: block;
+        }
+
+        .tabs {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tabs button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .tabs button.active {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <button class="tab-button active" onclick="showTab('login')">Login</button>
+        <button class="tab-button" onclick="showTab('signup')">Signup</button>
+    </div>
+
+    <div id="login" class="tab active">
+        <form action="login.php" method="post">
+            <h2>Login</h2>
+            <label for="login_name">Name:</label>
+            <input type="text" id="login_name" name="name" required><br>
+
+            <label for="login_password">Password:</label>
+            <input type="password" id="login_password" name="password" required><br>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="signup" class="tab">
+        <form action="signup.php" method="post">
+            <h2>Signup</h2>
+            <label for="signup_name">Name:</label>
+            <input type="text" id="signup_name" name="name" required><br>
+
+            <label for="signup_username">Username:</label>
+            <input type="text" id="signup_username" name="username" required><br>
+
+            <label for="signup_password">Password:</label>
+            <input type="password" id="signup_password" name="password" required><br>
+
+            <label for="signup_confirm_password">Confirm Password:</label>
+            <input type="password" id="signup_confirm_password" name="confirm_password" required><br>
+
+            <button type="submit">Signup</button>
+        </form>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            // Show the selected tab
+            document.getElementById(tabId).classList.add('active');
+            // Add active class to the corresponding tab button
+            document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
