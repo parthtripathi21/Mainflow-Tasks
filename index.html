@@ -3,60 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainFlow Task</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sports Fest</title>
     <style>
-        div {
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 24px;
-        padding-top: 9em;
-        padding-bottom: 9em;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        body{
+
+        body {
             background-color: rgb(100, 100, 200);
+            color: white;
             text-align: center;
+        }
+
+        nav {
+            background-color: orange;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: rgb(100, 100, 200);
+        }
+
+        nav ol {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav ol li {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        nav ol li a {
+            text-decoration: none;
+            color: rgb(100, 100, 200);
+            padding: 10px;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav ol li a:hover {
+            border-bottom: 2px solid rgb(100, 100, 200);
+        }
+
+        nav ol li ul {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: orange;
+            padding: 0;
+            min-width: 120px;
+            z-index: 1000;
+        }
+
+        nav ol li:hover ul {
+            display: block;
+        }
+
+        nav ol li ul li {
+            width: 100%;
+        }
+
+        nav ol li ul li a {
+            padding: 10px;
+            display: block;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 9em 1em;
+        }
+
+        .content h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+
+        .content h3 {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .content a {
+            text-decoration: none;
+            margin: 10px 0;
+        }
+
+        .content button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: white;
+            color: rgb(100, 100, 200);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .content button:hover {
+            background-color: #ddd;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ol {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ol li {
+                margin: 5px 0;
+            }
+
+            .content h1 {
+                font-size: 2em;
+            }
+
+            .content h3 {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
-        <label class="logo"><b>Sports Fest</b></label>
+        <label class="logo">Sports Fest</label>
         <ol>
+            <li><a href="#">Home</a></li>
             <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Catagories</a>
+                <a href="#">Categories</a>
                 <ul>
                     <li><a href="indoor.html">Indoor</a></li>
                     <li><a href="outdoor.html">Outdoor</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-            <li>
-                <a href="about.html">About</a>
-            </li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="about.html">About</a></li>
         </ol>
     </nav>
+
     <div class="content">
         <h1>Sports Fest</h1>
-        <h3>everyone is a player</h3>
+        <h3>Everyone is a player</h3>
+
         <a href="login&signup.html">
-            <button> login or signup using php</button>
+            <button>Login or Signup using PHP</button>
         </a>
-        <br>
-        <a href="Calculator/index.html"><button class="Calculator">Calculator</button></a>
-        <br>
-        <a href="React/public/index.html"><button class="Reactapp">React</button></a>
-        <br>
+        <a href="Calculator/index.html">
+            <button>Calculator</button>
+        </a>
+        <a href="React/public/index.html">
+            <button>React App</button>
+        </a>
         <a href="React-Login-Signup/public/index.html">
-            <button> login or signup using react</button>
+            <button>Login or Signup using React</button>
         </a>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
